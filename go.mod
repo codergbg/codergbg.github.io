@@ -1,4 +1,4 @@
-module github.com/alecthw/alecthw.github.io
+module github.com/codergbg/blog.github.io
 
 go 1.17
 
