@@ -1,4 +1,4 @@
-module github.com/codergbg/blog.github.io
+module github.com/codergbg/codergbg.github.io
 
 go 1.17
 
