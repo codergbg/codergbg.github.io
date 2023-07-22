@@ -3,4 +3,4 @@
 [![Update theme](https://github.com/codergbg/codergbg.github.io/actions/workflows/update-theme.yml/badge.svg)](https://github.com/codergbg/codergbg.github.io/actions/workflows/update-theme.yml)
 
 
-Personal Homepage: [https://blog.github.io](https://blog.github.io)
+Personal Homepage: [https://blog.github.io](https://codergbg.github.io)
