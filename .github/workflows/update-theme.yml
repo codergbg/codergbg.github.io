@@ -1,0 +1,33 @@
+name: Update theme
+
+on:
+  schedule:
+    - cron: "0 20 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: Update theme
+        run: hugo mod get -u github.com/CaiJimmy/hugo-theme-stack/v3
+
+      - name: Tidy go.mod, go.sum
+        run: hugo mod tidy
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "CI: Update theme"

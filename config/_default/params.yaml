@@ -1,0 +1,143 @@
+# Pages placed under these sections will be shown on homepage and archive page.
+mainSections:
+  - post
+
+# Output page's full content in RSS.
+rssFullContent: true
+
+favicon: /favicon.ico
+
+footer:
+  since: 2015
+  customText: |
+    <a href="https://beian.miit.gov.cn/shouye.html">苏ICP备20010717号-1</a>
+dateFormat:
+  published: 2006-01-02 15:04
+  lastUpdated: 2006-01-02 15:04
+sidebar:
+  emoji:
+  subtitle: 挖坑埋雷 甩锅推诿
+  avatar:
+    enabled: true
+    local: true
+    src: img/avatar.gif
+article:
+  math: false
+  readingTime: true
+  license:
+    enabled: false
+    default: Licensed under CC BY-NC-SA 4.0
+
+## Widgets
+widgets:
+  homepage:
+    - type: search
+    - type: archives
+      params:
+        limit: 5
+    - type: categories
+      params:
+        limit: 10
+    - type: tag-cloud
+      params:
+        limit: 10
+  page:
+    - type: toc
+opengraph:
+  twitter:
+    site: ""
+    card: summary_large_image
+defaultImage:
+  opengraph:
+    enabled: false
+    local: false
+    src: ""
+colorScheme:
+  toggle: true
+  default: auto
+imageProcessing:
+  cover:
+    enabled: true
+  content:
+    enabled: true
+
+## Comments
+comments:
+  enabled: true
+  provider: disqus
+  disqusjs:
+    shortname: ""
+    apiUrl: ""
+    apiKey: ""
+    admin: ""
+    adminLabel: ""
+  utterances:
+    repo: ""
+    issueTerm: pathname
+    label: ""
+  remark42:
+    host: ""
+    site: ""
+    locale: ""
+  vssue:
+    platform: ""
+    owner: ""
+    repo: ""
+    clientId: ""
+    clientSecret: ""
+    autoCreateIssue: false
+  waline:
+    serverURL: ""
+    lang: ""
+    visitor: ""
+    avatar: ""
+    emoji:
+      - https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo
+    requiredMeta:
+      - name
+      - email
+      - url
+    placeholder: ""
+    locale:
+      admin: Admin
+  twikoo:
+    envId: ""
+    region: ""
+    path: ""
+    lang: ""
+  cactus:
+    defaultHomeserverUrl: https://matrix.cactus.chat:8448
+    serverName: cactus.chat
+    siteName: ""
+  giscus:
+    repo: ""
+    repoID: ""
+    category: ""
+    categoryID: ""
+    mapping: ""
+    lightTheme: ""
+    darkTheme: ""
+    reactionsEnabled: 1
+    emitMetadata: 0
+  gitalk:
+    owner: ""
+    admin: ""
+    repo: ""
+    clientID: ""
+    clientSecret: ""
+  cusdis:
+    host: ""
+    id: ""
+
+# Extra config
+mermaid:
+  enable: true
+  theme: default
+  flowchart:
+    diagramPadding: 20
+markmap:
+  enable: true
+katex:
+  enable: true
+  mhchem:
+    enable: true
