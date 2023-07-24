@@ -64,7 +64,7 @@ imageProcessing:
 ## Comments
 comments:
   enabled: true
-  provider: disqus
+  provider: gitalk
   disqusjs:
     shortname: ""
     apiUrl: ""
