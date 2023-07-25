@@ -120,11 +120,11 @@ comments:
     reactionsEnabled: 1
     emitMetadata: 0
   gitalk:
-    owner: ""
-    admin: ""
-    repo: ""
-    clientID: ""
-    clientSecret: ""
+    owner: "codergbg"
+    admin: "codergbg"
+    repo: "gitalk-comments"
+    clientID: "215cc768f4e7559ae23e"
+    clientSecret: "cb7d3213983ecebac8d06fa114463068f34fdcd6"
   cusdis:
     host: ""
     id: ""
