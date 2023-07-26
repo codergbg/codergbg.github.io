@@ -16,5 +16,5 @@ hasCJKLanguage: true
 disqusShortname: codergbg-github-io
 
 # busuanzi
-busuanzi = true
-busuanzi_site_offset = 100000
+busuanzi: true
+busuanzi_site_offset: 100000
