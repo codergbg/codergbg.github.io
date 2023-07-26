@@ -72,9 +72,9 @@ comments:
     admin: ""
     adminLabel: ""
   utterances:
-    repo: ""
+    repo: "gitalk-comments"
     issueTerm: pathname
-    label: ""
+    label: "utterances"
   remark42:
     host: ""
     site: ""
