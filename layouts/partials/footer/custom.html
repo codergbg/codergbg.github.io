@@ -1,1 +1,30 @@
 {{ partialCached "scripts.html" . }}
+
+<p class="credits copyright text-muted">
+        &copy;2017-2018
+          {{ if .Site.Author.name }}
+            {{ if .Site.Author.website }}
+              <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
+            {{ else }}
+              {{ .Site.Author.name }}
+            {{ end }}
+          {{ end }}
+          &nbsp;&bull;&nbsp;
+          {{ .Site.LastChange.Format "January 2,2006" }}
+          updated
+          {{ if .Site.Title }}
+            &nbsp;&bull;&nbsp;
+            <a href="{{ "" | absLangURL }}">Home</a>
+          {{ end }}
+        </p>
+        ...
+        <p class="credits theme-by text-muted">
+        ...
+        <span id="busuanzi_container_site_pv">
+            本站访问量：<span id="busuanzi_value_site_pv"></span>次
+        </span>
+        &nbsp;
+        <span id="busuanzi_container_site_uv">
+            您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+        </span>
+        </p>
