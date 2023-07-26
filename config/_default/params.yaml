@@ -11,6 +11,8 @@ footer:
   since: 2015
   customText: |
     <a href="https://beian.miit.gov.cn/shouye.html">苏ICP备20010717号-1</a>
+    <i class="powerby"><span id="busuanzi_container_site_pv">访问量&nbsp;-&nbsp;<span id="busuanzi_value_site_pv"></span></span>&nbsp;<span id="busuanzi_container_site_uv">访客数&nbsp;-&nbsp;<span id="busuanzi_value_site_uv"></span>人次</span>
+</i>
 dateFormat:
   published: 2006-01-02 15:04
   lastUpdated: 2006-01-02 15:04
