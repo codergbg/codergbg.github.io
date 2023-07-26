@@ -9,7 +9,7 @@ favicon: /favicon.ico
 
 footer:
   since: 2015
-  customText: 
+  customText: |
     <a href="https://beian.miit.gov.cn/shouye.html">苏ICP备20010717号-1</a>
 dateFormat:
   published: 2006-01-02 15:04
