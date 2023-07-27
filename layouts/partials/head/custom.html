@@ -3,7 +3,7 @@
   integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
   crossorigin="anonymous"></script>
 
-{{ if .Site.Params.umami.enabled -}}
+{{ if .Site.Params.analytics.umami.enabled -}}
     <script async data-website-id="{{ .Site.Params.analytics.umami.id }}" src="{{ .Site.Params.analytics.umami.src }}"></script>
 {{ end -}}
 
