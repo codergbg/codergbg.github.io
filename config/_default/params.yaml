@@ -145,5 +145,5 @@ katex:
 analytics:
   enabled: true
   umami:
-    website_id: "4bae00ed-8887-430a-a950-a9e0f300e37d"
+    id: "4bae00ed-8887-430a-a950-a9e0f300e37d"
     src: "https://umami-nqxaensd8-codergbg.vercel.app/hugo-ladder"
