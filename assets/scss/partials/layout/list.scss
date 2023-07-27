@@ -1,0 +1,9 @@
+ .article-list--tile {
+        display: flex;
+        padding-bottom: 0px; // Narrow the spacing
+
+        article {
+            width: 150px; // Make category cards smaller
+            height: 90px;
+            margin-right: 5px; // Make cards spacing narrower
+            flex-shrink: 0;
