@@ -141,3 +141,8 @@ katex:
   enable: true
   mhchem:
     enable: true
+# Analytics config
+analytics:
+  umami:
+    website_id: "4bae00ed-8887-430a-a950-a9e0f300e37d"
+    url: "https://umami-nqxaensd8-codergbg.vercel.app/hugo-ladder"
