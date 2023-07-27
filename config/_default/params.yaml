@@ -148,9 +148,3 @@ analytics:
   umami:
     id: "4bae00ed-8887-430a-a950-a9e0f300e37d"
     src: "https://umami-nqxaensd8-codergbg.vercel.app/hugo-ladder"
-# count words
-countAllWords:
-   enabled: true
-   prefix: "共计"
-   suffix: "字"
- 
