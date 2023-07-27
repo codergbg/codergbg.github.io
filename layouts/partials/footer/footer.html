@@ -14,10 +14,11 @@
     {{ range (where .Site.Pages "Kind" "page" )}}
     {{$scratch.Add "total" .WordCount}}
     {{ end }}
-
-    <span style="display: block;">
-      {{ .Site.Params.countAllWords.prefix }} {{$scratch.Get "total" }} {{ .Site.Params.countAllWords.suffix }}
-    </span>
-  {{ end }}
+    <section class ="countwords">
+        <span style="display: block;">
+          {{ .Site.Params.countAllWords.prefix }} {{$scratch.Get "total" }} {{ .Site.Params.countAllWords.suffix }}
+        </span>
+    </section>
+{{ end }}
 </footer>
 
