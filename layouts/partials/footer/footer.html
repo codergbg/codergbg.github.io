@@ -6,9 +6,9 @@
     {{ range (where .Site.Pages "Kind" "page" )}}
     {{$scratch.Add "total" .WordCount}}
     {{ end }}
-    <br><span style="display: block;">
+    <span style="display: block;">
         {{ .Site.Params.countAllWords.prefix }} {{$scratch.Get "total" }} {{ .Site.Params.countAllWords.suffix }}
-    </span>
+    </span>&nbsp;
 {{ end }}
 <span id="busuanzi_container_site_pv">
     访问量&nbsp;-&nbsp;<span id="busuanzi_value_site_pv"></span>
