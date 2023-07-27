@@ -54,6 +54,21 @@ window.markmap = {
        integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous"
        {{ printf "onload='renderMathInElement(%s, %s);'" (( $.Page.Site.Params.katex.html_dom_element | default "document.body" ) | safeJS ) ( printf "%s" ( $.Page.Site.Params.katex.options | jsonify )) | safeHTMLAttr }}>
 </script>
+
+<!-- Add blog running time -->
+<script>
+    let s1 = '2023-3-18'; //website start date
+    s1 = new Date(s1.replace(/-/g, "/"));
+    let s2 = new Date();
+    let timeDifference = s2.getTime() - s1.getTime();
+
+    let days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+    let result = days + "天" + hours + "小时" + minutes + "分钟";
+    document.getElementById('runningdays').innerHTML = result;
+</script>
 {{ end -}}
 
 {{ $jsMermaid := resources.Get "js/mermaid.js" | resources.ExecuteAsTemplate "js/mermaid.js" . -}}
