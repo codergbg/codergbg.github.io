@@ -6,7 +6,7 @@
 </span>&nbsp;
 <span id="busuanzi_container_site_uv">
     访客数&nbsp;-&nbsp;<span id="busuanzi_value_site_uv"></span>人次
-</span>&nbsp;
+</span>
   {{ if .Site.Params.countAllWords.enabled }}
     {{$scratch := newScratch}}
     {{ range (where .Site.Pages "Kind" "page" )}}
