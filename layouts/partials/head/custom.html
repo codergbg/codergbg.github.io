@@ -4,7 +4,7 @@
   crossorigin="anonymous"></script>
 
 {{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") | and .Site.Params.umami.enabled -}}
-    <script async defer data-website-id="{{ .Site.Params.analytics.umami.data-website-id }}" src="{{ .Site.Params.analytics.umami.src }}"></script>
+    <script async data-website-id="{{ .Site.Params.analytics.umami.data-website-id }}" src="{{ .Site.Params.analytics.umami.src }}"></script>
 {{- end -}}
 
 {{ if .Site.Params.prism_syntax_highlighting -}}
