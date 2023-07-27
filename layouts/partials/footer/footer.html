@@ -1,7 +1,19 @@
-<footer class=site-footer>
+
 <!-- Add blog running time -->
 <section class="running-time">本博客已稳定运行<span id="runningdays" class="running-days"></span></section>
+
 <section class=copyright>&copy;2015 -2023 Coder blog</section>
+
+<!-- Add total page and word count time -->
+<section class="totalcount">
+    {{$scratch := newScratch}}
+    {{ range (where .Site.Pages "Kind" "page" )}}
+        {{$scratch.Add "total" .WordCount}}
+    {{ end }}
+    发表了{{ len (where .Site.RegularPages "Section" "post") }}篇文章 · 
+    总计{{ div ($scratch.Get "total") 1000.0 | lang.FormatNumber 2 }}k字
+</section>
+
 <section class="powerby">
 <span id="busuanzi_container_site_pv">
     访问量&nbsp;-&nbsp;<span id="busuanzi_value_site_pv"></span>
@@ -9,17 +21,7 @@
 <span id="busuanzi_container_site_uv">
     访客数&nbsp;-&nbsp;<span id="busuanzi_value_site_uv"></span>人次
 </span>
-  {{ if .Site.Params.countAllWords.enabled }}
-    {{$scratch := newScratch}}
-    {{ range (where .Site.Pages "Kind" "page" )}}
-    {{$scratch.Add "total" .WordCount}}
-    {{ end }}
-    <span style="display: block;">
-        {{ .Site.Params.countAllWords.prefix }} {{$scratch.Get "total" }} {{ .Site.Params.countAllWords.suffix }}
-    </span>
-{{ end }}
 <a href=https://umami-nqxaensd8-codergbg.vercel.app/share/GpfkXnXsz8rwzvCY/hugo-test>网站分析</a>
 </section>
 
-</footer>
 
