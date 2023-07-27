@@ -1,0 +1,8 @@
+<h2 class="article-title">
+    {{- .Title -}}
+</h2>
+{{ with .Params.description }}
+<div class="article-subtitle">
+    {{ . }}
+</div>
+{{ end }}
