@@ -1,0 +1,7 @@
+  --accent-color-text: #fff;
+    --body-text-color: #b0b0b0;
+    --emphasize-text-color: #9e8f9f; // Add emphasize font color
+
+    &[data-scheme="dark"] {
+        --emphasize-text-color: #d5cfc4; // Add emphasize font color for dark scheme
+    }
