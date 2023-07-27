@@ -9,5 +9,15 @@
   </span>
 <a href=https://umami-nqxaensd8-codergbg.vercel.app/share/GpfkXnXsz8rwzvCY/hugo-test>网站分析</a>
 </section>
+{{ if .Site.Params.countAllWords.enabled }}
+    {{$scratch := newScratch}}
+    {{ range (where .Site.Pages "Kind" "page" )}}
+    {{$scratch.Add "total" .WordCount}}
+    {{ end }}
+
+    <span style="display: block;">
+      {{ .Site.Params.countAllWords.prefix }} {{$scratch.Get "total" }} {{ .Site.Params.countAllWords.suffix }}
+    </span>
+  {{ end }}
 </footer>
 
