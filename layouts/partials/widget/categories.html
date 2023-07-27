@@ -1,5 +1,5 @@
    <div class="category-label">
-        {{ range first $limit $context.Site.Taxonomies.categories.ByCount }}
+        {{ range first $limit := $context.Site.Taxonomies.categories.ByCount }}
         <a href="{{ .Page.RelPermalink }}" class="font_size_{{ .Count }}"
             style="border-left-color: {{ .Page.Params.style.background }}; filter:saturate(1.7);">
             {{ .Page.Title }}<span class="category-count">{{ .Count }}</span>
