@@ -1,1 +1,21 @@
+.running-time {
+    color: var(--card-text-color-secondary);
+    font-weight: normal;
+
+    .running-days {
+        font-weight:bold;
+        color: var(--emphasize-text-color);
+    }   
+}
+
+.totalcount {
+    color: var(--card-text-color-secondary);
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+.powerby {
+    color: var(--card-text-color-secondary);
+    font-weight: normal;
+    margin-bottom: 5px;
+}
 
