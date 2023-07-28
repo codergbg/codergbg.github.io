@@ -29,6 +29,8 @@
     <span id="busuanzi_container_site_uv">
         访客数&nbsp;-&nbsp;<span id="busuanzi_value_site_uv"></span>人次
     </span>&nbsp;
+    {{- $analyze := `<a href=https://umami-nqxaensd8-codergbg.vercel.app/share/GpfkXnXsz8rwzvCY/hugo-test>网站分析</a>` -}}
+    {{  $analyze | safeHTML }}
   </section>
 
     <section class="powerby">
@@ -39,11 +41,9 @@
         {{- $Generator := `<a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>` -}}
         {{- $Theme := printf `<b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="%s">Stack</a></b>` $ThemeVersion -}}
         {{- $DesignedBy := `<a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>` -}}
-        {{- $analyze := `<a href=https://umami-nqxaensd8-codergbg.vercel.app/share/GpfkXnXsz8rwzvCY/hugo-test>网站分析</a>` -}}
 
-        {{ T "footer.builtWith" (dict "Generator" $Generator) | safeHTML }} <br />
+        {{ T "footer.builtWith" (dict "Generator" $Generator) | safeHTML }} &nbsp;&nbsp;
         {{ T "footer.designedBy" (dict "Theme" $Theme "DesignedBy" $DesignedBy) | safeHTML }}
-        {{  $analyze | safeHTML }} <br />
     </section>
 </footer>
 
