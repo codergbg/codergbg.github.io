@@ -8,7 +8,7 @@
     }   
 }
 
-.totalcount {
+.totalcount; .copyright {
     color: var(--card-text-color-secondary);
     font-weight: normal;
     margin-bottom: 5px;
@@ -18,14 +18,13 @@
     font-weight: normal;
     margin-bottom: 5px;
     a {
-        color: #f00;
         font-weight: normal;
     }
     a:hover{
-        color:#FDF405;
+        font-weight: bold;
     }
     a:active{
-        color:#F707EE;
+        font-weight: bold;
     }
 }
 
