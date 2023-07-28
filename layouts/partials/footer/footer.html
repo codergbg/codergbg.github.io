@@ -42,7 +42,7 @@
         {{- $analyze := `<a href=https://umami-nqxaensd8-codergbg.vercel.app/share/GpfkXnXsz8rwzvCY/hugo-test>网站分析</a>` -}}
 
         {{ T "footer.builtWith" (dict "Generator" $Generator) | safeHTML }} <br />
-        {{ T "footer.designedBy" (dict "Theme" $Theme "DesignedBy" $DesignedBy) | safeHTML }}
+        {{ T "footer.designedBy" (dict "Theme" $Theme "DesignedBy" $DesignedBy "Analyzed by" $$analyze) | safeHTML }}
     </section>
 </footer>
 
