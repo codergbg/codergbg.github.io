@@ -17,5 +17,15 @@
     color: var(--card-text-color-secondary);
     font-weight: normal;
     margin-bottom: 5px;
+    a {
+        color: #f00;
+        font-weight: normal;
+    }
+    a:hover{
+        color:#FDF405;
+    }
+    a:active{
+        color:#F707EE;
+    }
 }
 
