@@ -42,8 +42,13 @@ footer.site-footer {
         font-weight:bold;
         color: var(--emphasize-text-color);
      }   
- }
-
+   }
+    
+ .visited {
+     color: var(--accent-color);
+     font-weight: bold;
+     margin-bottom: 5px;
+  }
   .totalcount {
     color: var(--card-text-color-secondary);
     font-weight: normal;
