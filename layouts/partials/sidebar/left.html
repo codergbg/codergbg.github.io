@@ -94,27 +94,7 @@
                     {{ partial "helper/icon" "toggle-right" }}
                     <span>{{ T "darkMode" }}</span>
                 </li>
-            {{ end }}
-
-            {{ if .Site.IsMultiLingual }}
-            {{ $siteLanguages := .Site.Languages}}
-            {{ $pageLang := .Page.Lang}}
-            {{ range .Page.AllTranslations }}
-                {{ $translation := .}}
-                {{ range $siteLanguages }}
-                    {{ if eq $translation.Lang .Lang }}
-                        {{ $selected := false }}
-                        {{ if eq $pageLang .Lang}}
-                        {{ else }}
-                            <div class="language-select">
-                                <li id="selected">{{ partial "helper/icon" "trans" }}<a href="{{ $translation.RelPermalink }}"><span>{{ .LanguageName }}</span></a></li>
-                            </div>
-                        {{ end }}
-                    {{ end }}
-                {{ end }}
-            {{ end }}
-        {{ end }}
-            
+            {{ end }}      
         </div>
     </ol>
 </aside>
