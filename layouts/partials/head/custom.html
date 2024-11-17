@@ -1,12 +1,6 @@
-{{- partial "head/script.html" . -}}
 <script
-  src="https://code.jquery.com/jquery-3.6.3.min.js"
-  integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+  src="https://code.jquery.com/jquery-latest.min.js"
   crossorigin="anonymous"></script>
-
-{{ if .Site.Params.analytics.enabled -}}
-    <script async data-website-id="{{ .Site.Params.analytics.umami.id }}" src="{{ .Site.Params.analytics.umami.src }}"></script>
-{{ end -}}
 
 {{ if .Site.Params.prism_syntax_highlighting -}}
 <link rel="stylesheet" href="{{ "css/prism.css" | relURL }}"/>

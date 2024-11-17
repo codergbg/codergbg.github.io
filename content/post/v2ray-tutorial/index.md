@@ -2,7 +2,7 @@
 title: V2Ray4.x + Nginx + TLS + ws + MTProto 详细配置教程
 description: V2Ray 简单介绍和配置指导，该文档比较老了，最新的配置有些许变化，不过大差不差，重要的是搞懂。
 slug: v2ray-tutorial
-date: 2018-11-18 13:32:58+0000
+date: 2018-11-18T13:32:58+08:00
 image: cover.png
 categories:
   - passgfw
