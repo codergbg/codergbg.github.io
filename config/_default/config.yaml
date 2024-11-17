@@ -14,4 +14,6 @@ hasCJKLanguage: true
 
 # Change it to your Disqus shortname before using
 disqusShortname: codergbg-github-io
+frontmatter:
+  lastmod: [":fileModTime", "lastmod"]
 
