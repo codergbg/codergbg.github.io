@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>未分类 on Coder blog</title><link>https://codergbg.github.io/categories/none/</link><description>Recent content in 未分类 on Coder blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://codergbg.github.io/categories/none/index.xml" rel="self" type="application/rss+xml"/><item><title>在 Hugo Stack 中集成 Mermaid 和 MarkMap</title><link>https://codergbg.github.io/p/2023/04/hugo-diagrams/</link><pubDate>Wed, 19 Apr 2023 21:59:22 +0000</pubDate><guid>https://codergbg.github.io/p/2023/04/hugo-diagrams/</guid><description>&lt;img src="https://codergbg.github.io/p/2023/04/hugo-diagrams/cover.jpg" alt="Featured image of post 在 Hugo Stack 中集成 Mermaid 和 MarkMap" />&lt;p>集成参考了 Google 的 docsy
+&lt;span style="white-space: nowrap;">&lt;svg width=".7em"
+height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+&lt;path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+&lt;path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+fill="currentColor">
+&lt;/svg>&lt;/span>
+中的集成方式。&lt;/p>
+&lt;p>主题 hugo-theme-stack
+&lt;span style="white-space: nowrap;">&lt;svg width=".7em"
+height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+&lt;path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+&lt;path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+fill="currentColor">
+&lt;/svg>&lt;/span>
+中没有集成 Mermaid，仅集成了 Katex，需要画图的时候就要自己引入 Mermaid 。&lt;/p>
+&lt;p>由于使用 module 的方式使用主题，故并不想因为为了引入 Mermaid 而修改主题模板。Stack 提供了两个空的模板来支持自定义，所以就通过这两个自定义模板来引入。&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>layouts/partials/head/custom.html&lt;/code>&lt;/li>
+&lt;li>&lt;code>layouts/partials/footer/custom.html&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>另外，为了方便后续维护，也同时使用 docsy
+&lt;span style="white-space: nowrap;">&lt;svg width=".7em"
+height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+&lt;path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+&lt;path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+fill="currentColor">
+&lt;/svg>&lt;/span>
+里的方式引入了 Katex。&lt;/p>
+&lt;h2 id="集成方式">集成方式
+&lt;/h2>&lt;p>主要的工作是添加钩子模板和引入相关的JavaScript文件。&lt;/p>
+&lt;h3 id="新增文件">新增文件
+&lt;/h3>&lt;p>将本项目
+&lt;span style="white-space: nowrap;">&lt;svg width=".7em"
+height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+&lt;path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+&lt;path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+fill="currentColor">
+&lt;/svg>&lt;/span>
+中的以下文件，直接拷贝到你的项目中。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 钩子模板&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">layouts/_default/_markup/render-codeblock-chem.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">layouts/_default/_markup/render-codeblock-markmap.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">layouts/_default/_markup/render-codeblock-math.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">layouts/_default/_markup/render-codeblock-mermaid.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 主题可自定义的模板文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">layouts/partials/head/custom.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">layouts/partials/footer/custom.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># JavaScript文件集中引入&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">layouts/partials/scripts.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># JavaScript文件和CSS文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">assets/js/markmap.js
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">assets/js/mermaid.js
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">static/js/prism.js
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">static/css/prism.css
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="新增相关配置">新增相关配置
+&lt;/h3>&lt;p>config_default\params.yaml&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">markmap&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">enable&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">mermaid&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">enable&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">theme&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">default&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">flowchart&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">diagramPadding&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">20&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">katex&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">enable&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">mhchem&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">enable&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>PS: 如果不是使用的&lt;code>Configuration Directory&lt;/code>，要把配置加到&lt;code>params&lt;/code>下。&lt;/p>
+&lt;h2 id="使用示例">使用示例
+&lt;/h2>&lt;h3 id="mermaid">Mermaid
+&lt;/h3>&lt;pre class="mermaid">graph TD;
+A--&amp;gt;B;
+A--&amp;gt;C;
+B--&amp;gt;D;
+C--&amp;gt;D;
+&lt;/pre>
+&lt;h3 id="markmap">MarkMap
+&lt;/h3>&lt;pre class="markmap"># markmap
+## Links
+- &amp;lt;https://markmap.js.org/&amp;gt;
+- [GitHub](https://github.com/gera2ld/markmap)
+## Related
+- [coc-markmap](https://github.com/gera2ld/coc-markmap)
+- [gatsby-remark-markmap](https://github.com/gera2ld/gatsby-remark-markmap)
+## Features
+- links
+- **inline** ~~text~~ *styles*
+- multiline
+text
+- `inline code`
+-
+```js
+console.log(&amp;#39;code block&amp;#39;);
+```
+- Katex - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+&lt;/pre>
+&lt;h3 id="mathjax">Mathjax
+&lt;/h3>&lt;p>行间公式：$$\sum_{i=0}N\int_{a}{b}g(t,i)\text{d}t$$&lt;/p>
+&lt;p>行内公式：\(y=ax+b\)&lt;/p>
+&lt;p>&lt;code>math&lt;/code> 代码块：&lt;/p>
+&lt;div class="math">$$\tag*{(1)} P(E) = {n \choose k} p^k (1-p)^{n-k}$$&lt;/div>&lt;h3 id="mhchem">mhchem
+&lt;/h3>
+&lt;div class="chem">$$\tag*{(2)} \ce{Zn^2+ &lt;=>[+ 2OH-][+ 2H+] $\underset{\text{amphoteric hydroxide}}{\ce{Zn(OH)2 v}}$ &lt;=>[+ 2OH-][+ 2H+] $\underset{\text{tetrahydroxozincate}}{\ce{[Zn(OH)4]^2-}}$}$$&lt;/div></description></item></channel></rss>
