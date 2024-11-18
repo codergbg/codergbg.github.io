@@ -34,9 +34,9 @@
   </section>
 
     <section class="powerby">
-        {{ with .Site.Params.footer.customText }}
+<!--         {{ with .Site.Params.footer.customText }}
             {{ . | safeHTML }} <br/>
-        {{ end }}
+        {{ end }} -->
 
         {{- $Generator := `<a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>` -}}
         {{- $Theme := printf `<b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="%s">Stack</a></b>` $ThemeVersion -}}
