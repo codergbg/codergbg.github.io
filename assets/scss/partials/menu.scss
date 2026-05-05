@@ -128,9 +128,7 @@
 
 /* Menu style */
 .menu {
-    padding-left: 0;
     list-style: none;
-    flex-direction: column;
     overflow-y: auto;
     flex-grow: 1;
     font-size: 1.4rem;
@@ -146,7 +144,8 @@
     }
 
     &,
-    .menu-bottom-section {
+    .menu-bottom-section ol{
+        flex-direction: column;
         gap: 30px;
         @include respond(xl) {
             gap: 25px;
@@ -204,9 +203,10 @@
 
     .menu-bottom-section {
         margin-top: auto;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+       ol {
+            display: flex;
+            padding-left: 0;
+        }
     }
 }
 
