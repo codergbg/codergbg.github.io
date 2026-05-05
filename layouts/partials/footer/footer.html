@@ -1,43 +1,36 @@
 {{- $ThemeVersion := "3.17.0" -}}
 <footer class="site-footer">
     <!-- Add blog running time -->
-    <section class="running-time">本博客已稳定运行<span id="runningdays" class="running-days"></span></section>
+    <section class="running-time">博客已运行<span id="runningdays" class="running-days"></span></section>
+
+     <!-- add vist count time -->  
+    <section class ="visited">
+        <span id="busuanzi_container_site_pv">
+            访问量&nbsp;:&nbsp;<span id="busuanzi_value_site_pv"></span>
+        </span>&nbsp;
+        <span id="busuanzi_container_site_uv">
+            访客数&nbsp;:&nbsp;<span id="busuanzi_value_site_uv"></span>
+        </span>&nbsp;
+        <!-- Add total page and word count time -->
+        {{$scratch := newScratch}}
+        {{ range (where .Site.Pages "Kind" "page" )}}
+            {{$scratch.Add "total" .WordCount}}
+        {{ end }}
+        发表了{{ len (where .Site.RegularPages "Section" "post") }}篇文章 · 
+        总计{{ div ($scratch.Get "total") 1000.0 | lang.FormatNumber 2 }}k字
+    <!--     {{- $analyze := `<a href=https://umami-nqxaensd8-codergbg.vercel.app/share/GpfkXnXsz8rwzvCY/hugo-test>网站分析</a>` -}}
+    {{  $analyze | safeHTML }} -->
+    </section>
     
-    <section class="copyright">
+    <section class="powerby">
+        <!-- Add copyright -->
         &copy; 
         {{ if and (.Site.Params.footer.since) (ne .Site.Params.footer.since (int (now.Format "2006"))) }}
             {{ .Site.Params.footer.since }} - 
         {{ end }}
         {{ now.Format "2006" }} {{ .Site.Title }}
-   </section>
-    
-   <!-- Add total page and word count time -->
-   <section class="totalcount">
-     {{$scratch := newScratch}}
-     {{ range (where .Site.Pages "Kind" "page" )}}
-         {{$scratch.Add "total" .WordCount}}
-     {{ end }}
-     发表了{{ len (where .Site.RegularPages "Section" "post") }}篇文章 · 
-     总计{{ div ($scratch.Get "total") 1000.0 | lang.FormatNumber 2 }}k字
-  </section>
-    
-   <!-- add vist count time -->  
-  <section class ="visited">
-   <span id="busuanzi_container_site_pv">
-        访问量&nbsp;-&nbsp;<span id="busuanzi_value_site_pv"></span>
-    </span>&nbsp;
-    <span id="busuanzi_container_site_uv">
-        访客数&nbsp;-&nbsp;<span id="busuanzi_value_site_uv"></span>人次
-    </span>&nbsp;
-<!--     {{- $analyze := `<a href=https://umami-nqxaensd8-codergbg.vercel.app/share/GpfkXnXsz8rwzvCY/hugo-test>网站分析</a>` -}}
-    {{  $analyze | safeHTML }} -->
-  </section>
-
-    <section class="powerby">
-<!--         {{ with .Site.Params.footer.customText }}
-            {{ . | safeHTML }} <br/>
-        {{ end }} -->
-
+        <!-- Add powerby -->
+        &nbsp;
         {{- $Generator := `<a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>` -}}
         {{- $Theme := printf `<b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="%s">Stack</a></b>` $ThemeVersion -}}
         {{- $DesignedBy := `<a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>` -}}

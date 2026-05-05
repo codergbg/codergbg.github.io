@@ -12,12 +12,6 @@ footer.site-footer {
         margin-bottom: 20px;
     }
 
-    .copyright {
-        color: var(--accent-color);
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
     .powerby {
         color: var(--body-text-color);
         font-weight: normal;
@@ -39,19 +33,14 @@ footer.site-footer {
      font-weight: normal;
 
      .running-days {
-        font-weight:bold;
-        color: var(--emphasize-text-color);
+        font-weight:normal;
+        color: var(--card-text-color-secondary);
      }   
    }
     
- .visited {
-     color: var(--accent-color);
-     font-weight: bold;
+   .visited {
+     color: var(--card-text-color-secondary);
+     font-weight: normal;
      margin-bottom: 5px;
-  }
-  .totalcount {
-    color: var(--card-text-color-secondary);
-    font-weight: normal;
-    margin-bottom: 5px;
-  }
+   }
 }
