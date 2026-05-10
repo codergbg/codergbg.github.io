@@ -2,6 +2,18 @@
 goldmark:
   renderer:
     unsafe: false
+  extensions:
+    passthrough:
+      enable: true
+      delimiters:
+        block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+        inline:
+          - - \(
+            - \)
 tableOfContents:
   endLevel: 4
   ordered: true

@@ -1,10 +1,5 @@
 ---
 title: 未分类
-description:
+description: 未分类。
 image:
-
-# Badge style
-# style:
-#     background: "#008B8B"
-#     color: "#fff"
 ---

@@ -13,6 +13,11 @@ social:
     url: https://github.com/codergbg
     params:
       icon: brand-github
+  - identifier: telegram
+    name: Telegram
+    url: https://t.me/codergbg
+    params:
+      icon: brand-telegram
   # - identifier: twitter
   #   name: Twitter
   #   url: https://twitter.com

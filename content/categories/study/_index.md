@@ -1,8 +1,5 @@
 ---
-# content/categories/life/_index.md
 title: 学习分享
-# Badge style
-style:
-    background: "#d09dbb"
-    color: "#fff"
+description: JAVA、Python和web前端技术等。
+image: cover.png
 ---

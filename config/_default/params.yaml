@@ -13,8 +13,8 @@ footer:
   # customText: |
   #   <a href="https://beian.miit.gov.cn/shouye.html">苏ICP备20010717号-1</a>
 dateFormat:
-  published: 2006-01-02 15:04
-  lastUpdated: 2006-01-02 15:04
+  published: 2008-02-02 20:05
+  lastUpdated: 2008-02-02 20:05
 sidebar:
   emoji:
   subtitle: 不怕万人阻挡，只怕自己投降
@@ -23,6 +23,7 @@ sidebar:
     local: true
     src: img/avatar.gif
 article:
+  headingAnchor : false
   math: false
   readingTime: true
   license:

@@ -1,0 +1,13 @@
+/* Place your custom SCSS in HUGO_SITE_FOLDER/assets/scss/custom.scss */
+
+.article-content {
+  img {
+    max-height: 36vh;
+    object-fit: cover;
+    object-position: top;
+
+    &:hover {
+      max-height: none;
+    }
+  }
+}
