@@ -1,3 +1,66 @@
 {{ partialCached "scripts.html" . }}
 {{ partialCached "footer/music.html" . }}
+<div id="particles-js"></div>
+
+<script src={{ (resources.Get "background/particles/particles.js").Permalink }}></script>
+<script>
+  particlesJS.load('particles-js', {{ (resources.Get "background/particles/particlesjs-config.json").Permalink }}, function() {
+    console.log('particles.js loaded - callback');
+  });
+</script>
+
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+</style>
+
+<script>
+    // 获取博客本地资源地址
+    const cssPath = {{ (resources.Get "waifu/waifu.css").Permalink }}
+    const tipsJsonPath = {{ (resources.Get "waifu/waifu-tips.json").Permalink }}
+    // live2d_path 参数建议使用绝对路径
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    // 封装异步加载资源的方法
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    // 加载 waifu.css live2d.min.js waifu-tips.js
+    if (screen.width >= 768) {
+        Promise.all([
+            loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            // 配置选项的具体用法见 README.md
+            initWidget({
+                waifuPath: tipsJsonPath,
+                cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+        });
+    }
+</script>
 

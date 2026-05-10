@@ -1,5 +1,6 @@
 /* Place your custom SCSS in HUGO_SITE_FOLDER/assets/scss/custom.scss */
-
+@import "aplayer-light.scss";
+@import "aplayer-dark.scss";
 .article-content {
   img {
     max-height: 36vh;
