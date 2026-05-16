@@ -3,7 +3,7 @@ title: 手把手教你部署Claude Code
 description: 手把手教你部署Claude Code
 date: 2026-05-10T19:23:13+08:00
 slug: Claude Code
-image: 
+image: cover.jpg
 categories:
   - study
 tags:
