@@ -8,7 +8,7 @@ rssFullContent: true
 favicon: /favicon.ico
 
 footer:
-  since: 2022
+  since: 2016
   customText:
   # customText: |
   #   <a href="https://beian.miit.gov.cn/shouye.html">苏ICP备20010717号-1</a>
@@ -66,7 +66,7 @@ imageProcessing:
 ## Comments
 comments:
   enabled: true
-  provider: gitalk
+  provider: giscus
   disqusjs:
     shortname: ""
     apiUrl: ""
@@ -74,9 +74,9 @@ comments:
     admin: ""
     adminLabel: ""
   utterances:
-    repo: "gitalk-comments"
+    repo: ""
     issueTerm: pathname
-    label: "utterances"
+    label: ""
   remark42:
     host: ""
     site: ""
@@ -112,21 +112,21 @@ comments:
     serverName: cactus.chat
     siteName: ""
   giscus:
-    repo: ""
-    repoID: ""
-    category: ""
-    categoryID: ""
-    mapping: ""
-    lightTheme: ""
-    darkTheme: ""
+    repo: "codergbg/codergbg.github.io"
+    repoID: "R_kgDOJ-Z2dw"
+    category: "Announcements"
+    categoryID: "DIC_kwDOJ-Z2d84C9LbO"
+    mapping: "pathname"
+    lightTheme: "noborder_light"
+    darkTheme: "noborder_gray"
     reactionsEnabled: 1
     emitMetadata: 0
   gitalk:
-    owner: "codergbg"
-    admin: "codergbg"
-    repo: "gitalk-comments"
-    clientID: "215cc768f4e7559ae23e"
-    clientSecret: "cb7d3213983ecebac8d06fa114463068f34fdcd6"
+    owner: ""
+    admin: ""
+    repo: ""
+    clientID: ""
+    clientSecret: ""
   cusdis:
     host: ""
     id: ""
