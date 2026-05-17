@@ -1,5 +1,5 @@
 ---
 title: 未分类
 description: 未分类。
-image:
+image: cover.png
 ---
