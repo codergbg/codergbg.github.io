@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AI on 虚拟造梦者</title><link>https://codergbg.github.io/tags/ai/</link><description>Recent content in AI on 虚拟造梦者</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sun, 17 May 2026 06:44:36 +0000</lastBuildDate><atom:link href="https://codergbg.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>手把手教你部署Claude Code</title><link>https://codergbg.github.io/p/2026/05/claude-code/</link><pubDate>Sun, 10 May 2026 19:23:13 +0800</pubDate><guid>https://codergbg.github.io/p/2026/05/claude-code/</guid><description>&lt;img src="https://codergbg.github.io/p/2026/05/claude-code/cover.jpg" alt="Featured image of post 手把手教你部署Claude Code" /&gt;&lt;h2 id="前言"&gt;前言
+&lt;/h2&gt;&lt;p&gt;手把手教你部署Claude Code：国内环境下的保姆级安装与使用指南&lt;/p&gt;
+&lt;p&gt;Claude Code 是 Anthropic 推出的强大 AI 编程助手，能辅助代码编写、问题调试和文档生成。但由于国内网络限制，直接部署可能遇到问题。本教程将带你从零开始，在 Windows 或 macOS 系统下完成部署，并解决国内访问问题。&lt;/p&gt;
+&lt;p&gt;✨ 所需准备：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Node.js 环境（版本 ≥ 20.x）&lt;/li&gt;
+&lt;li&gt;Claude API Key（需通过合规的第三方代理获取，或国内支持的服务）&lt;/li&gt;
+&lt;li&gt;科学上网工具（可选，用于访问部分国外资源）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="参考文档"&gt;参考文档
+&lt;/h3&gt;&lt;p&gt;&lt;a class="link" href="https://docs.claude.ai/code" target="_blank" rel="noopener"
+&gt;Claude Code 官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://github.com/xxx/cc-switch" target="_blank" rel="noopener"
+&gt;CCSwitch 项目地址&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="大致的步骤"&gt;大致的步骤
+&lt;/h3&gt;&lt;p&gt;1.安装Node.js环境&lt;/p&gt;
+&lt;p&gt;2.安装Claude Code&lt;/p&gt;
+&lt;p&gt;3.配置国内可用的API接入&lt;/p&gt;
+&lt;p&gt;4.启动Claude Code并测试&lt;/p&gt;
+&lt;h2 id="安装部署"&gt;安装部署
+&lt;/h2&gt;&lt;h3 id="安装nodejs环境"&gt;安装Node.js环境
+&lt;/h3&gt;&lt;p&gt;1. 访问官网下载对应系统的 Node.js 安装包： Node.js 官网 
+2. 安装完成后，打开终端（Windows 用 PowerShell 或 CMD，macOS 用 Terminal），验证版本：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;node --version
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npm --version
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;❯ node --version
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;v20.15.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;❯ npm --version
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;10.8.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="安装claude-code"&gt;安装Claude Code
+&lt;/h3&gt;&lt;p&gt;1. 在终端执行全局安装命令：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;npm install -g @anthropic-ai/claude-code
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;2. 安装完成后，验证是否成功：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;claude --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;3. 预期输出：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;claude-code@2.1.143
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="配置国内可用的api接入"&gt;配置国内可用的API接入
+&lt;/h3&gt;&lt;p&gt;⚠️ 注意：直接使用官方 API 在国内无法连接，需通过以下方案：&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;方案一：&lt;/strong&gt;&lt;/em&gt; 使用第三方代理服务 + 环境变量配置&lt;/p&gt;
+&lt;p&gt;1. 获取可用的第三方 Claude API 代理地址。&lt;/p&gt;
+&lt;p&gt;2. 配置环境变量：&lt;/p&gt;
+&lt;p&gt;Windows：打开「系统属性」→「高级」→「环境变量」，新增系统变量：&lt;/p&gt;
+&lt;p&gt;3. 变量名：ANTHROPIC_API_KEY&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;变量值：你的API Key（例如：sk-xxxxxxxxxxxxxxxxx）
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;4. 变量名：ANTHROPIC_BASE_URL&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;变量值：代理服务的 API 地址（例如： https://api-proxy.example.com/v1） 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;macOS：编辑 &lt;code&gt;~/.bashrc&lt;/code&gt; 或 &lt;code&gt;~/.zshrc&lt;/code&gt; 文件，添加：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;export ANTHROPIC_API_KEY=&amp;#34;sk-xxxxxxxxxxxxxxxxx&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;export ANTHROPIC_BASE_URL=&amp;#34;https://api-proxy.example.com/v1&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;5. 保存后执行 source ~/.bashrc 生效。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;方案二：&lt;/strong&gt;&lt;/em&gt; 使用工具辅助配置&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例如使用 CCSwitch 工具（支持 Windows 和 macOS）：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;a. 下载并安装 CCSwitch： CCSwitch 下载地址 &lt;/p&gt;
+&lt;p&gt;b. 打开软件，选择 Claude Code，填入 API Key 和 Base URL，点击「保存并应用」。&lt;/p&gt;
+&lt;h2 id="启动claude-code并测试"&gt;启动Claude Code并测试
+&lt;/h2&gt;&lt;p&gt;1. 在终端输入命令启动：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;claude
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;2. 若配置正确，将进入交互界面：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Welcome to Claude Code!
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Type your message below (or use /help for commands)...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;3. 测试示例：生成代码
+输入请求：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&amp;gt; 写一个用 Python 实现的冒泡排序算法
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;4. Claude 将返回代码和解析：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;def bubble_sort(arr):
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; n = len(arr)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; for i in range(n):
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; for j in range(0, n-i-1):
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; if arr[j] &amp;gt; arr[j+1]:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; arr[j], arr[j+1] = arr[j+1], arr[j]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; return arr
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;# 示例：
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;nums = [64, 34, 25, 12, 22, 11, 90]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sorted_nums = bubble_sort(nums)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;print(sorted_nums)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="进阶使用技巧"&gt;进阶使用技巧
+&lt;/h2&gt;&lt;p&gt;1. 在 VS Code 中集成：安装 Claude Code 插件，配置 API 后可直接在编辑器中使用。&lt;/p&gt;
+&lt;p&gt;2. 文件上下文理解：在交互时指定文件路径（如 @/path/to/your/file.js），Claude 可结合文件内容生成更精准的代码。&lt;/p&gt;
+&lt;p&gt;3. 报错调试：粘贴错误日志，Claude 会分析原因并提供修复建议。&lt;/p&gt;
+&lt;h2 id="常见问题与解决方案"&gt;常见问题与解决方案
+&lt;/h2&gt;&lt;p&gt;1. 报错 Not logged in 或 API Key invalid：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;检查环境变量或配置文件中 API Key 和 URL 是否正确。&lt;/li&gt;
+&lt;li&gt;确保代理服务可用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2. 响应超时：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;增加超时时间：在配置中添加&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;API_TIMEOUT_MS=60000。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="总结"&gt;总结
+&lt;/h2&gt;&lt;p&gt;通过以上步骤，你已成功在国内环境下部署并运行 Claude Code。结合 AI 的智能辅助，可大幅提升编程效率。若遇问题，可检查每一步配置或查阅官方文档。&lt;/p&gt;</description></item></channel></rss>
